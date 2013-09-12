@@ -23,7 +23,7 @@
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package    theme_clean
+ * @package    theme_mdsol_totara_theme
  * @copyright  2013 Moodle, moodle.org
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->version   = 2013050100;
 $plugin->requires  = 2013050100;
-$plugin->component = 'theme_clean';
+$plugin->component = 'theme_mdsol_totara_theme';
 $plugin->dependencies = array(
     'theme_bootstrapbase'  => 2013050100,
 );

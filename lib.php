@@ -23,8 +23,8 @@
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   theme_clean
- * @copyright 2013 Moodle, moodle.org
+ * @package   theme_mdsol_totara_theme
+ * @copyright 2013 Medidata Solutions
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,11 +37,11 @@
  * @param theme_config $theme The theme config object.
  * @return string The parsed CSS The parsed CSS.
  */
-function theme_clean_process_css($css, $theme) {
+function theme_mdsol_process_css($css, $theme) {
 
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
-    $css = theme_clean_set_logo($css, $logo);
+    $css = theme_mdsol_set_logo($css, $logo);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -49,7 +49,7 @@ function theme_clean_process_css($css, $theme) {
     } else {
         $customcss = null;
     }
-    $css = theme_clean_set_customcss($css, $customcss);
+    $css = theme_mdsol_set_customcss($css, $customcss);
 
     return $css;
 }
@@ -61,7 +61,7 @@ function theme_clean_process_css($css, $theme) {
  * @param string $logo The URL of the logo.
  * @return string The parsed CSS
  */
-function theme_clean_set_logo($css, $logo) {
+function theme_mdsol_set_logo($css, $logo) {
     $tag = '[[setting:logo]]';
     $replacement = $logo;
     if (is_null($replacement)) {
@@ -85,9 +85,9 @@ function theme_clean_set_logo($css, $logo) {
  * @param array $options
  * @return bool
  */
-function theme_clean_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_mdsol_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
-        $theme = theme_config::load('clean');
+        $theme = theme_config::load('mdsol');
         return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
@@ -101,7 +101,7 @@ function theme_clean_pluginfile($course, $cm, $context, $filearea, $args, $force
  * @param string $customcss The custom CSS to add.
  * @return string The CSS which now contains our custom CSS.
  */
-function theme_clean_set_customcss($css, $customcss) {
+function theme_mdsol_set_customcss($css, $customcss) {
     $tag = '[[setting:customcss]]';
     $replacement = $customcss;
     if (is_null($replacement)) {
@@ -123,7 +123,7 @@ function theme_clean_set_customcss($css, $customcss) {
  *      - heading HTML to use for the heading. A logo if one is selected or the default heading.
  *      - footnote HTML to use as a footnote. By default ''.
  */
-function theme_clean_get_html_for_settings(renderer_base $output, moodle_page $page) {
+function theme_mdsol_get_html_for_settings(renderer_base $output, moodle_page $page) {
     global $CFG;
     $return = new stdClass;
 
@@ -147,28 +147,28 @@ function theme_clean_get_html_for_settings(renderer_base $output, moodle_page $p
 }
 
 /**
- * Deprecated: Please call theme_clean_process_css instead.
+ * Deprecated: Please call theme_mdsol_process_css instead.
  * @deprecated since 2.5.1
  */
-function clean_process_css($css, $theme) {
+function mdsol_process_css($css, $theme) {
     debugging('Please call theme_'.__FUNCTION__.' instead of '.__FUNCTION__, DEBUG_DEVELOPER);
-    return theme_clean_process_css($css, $theme);
+    return theme_mdsol_process_css($css, $theme);
 }
 
 /**
- * Deprecated: Please call theme_clean_set_logo instead.
+ * Deprecated: Please call theme_mdsol_set_logo instead.
  * @deprecated since 2.5.1
  */
-function clean_set_logo($css, $logo) {
+function mdsol_set_logo($css, $logo) {
     debugging('Please call theme_'.__FUNCTION__.' instead of '.__FUNCTION__, DEBUG_DEVELOPER);
-    return theme_clean_set_logo($css, $logo);
+    return theme_mdsol_set_logo($css, $logo);
 }
 
 /**
- * Deprecated: Please call theme_clean_set_customcss instead.
+ * Deprecated: Please call theme_mdsol_set_customcss instead.
  * @deprecated since 2.5.1
  */
-function clean_set_customcss($css, $customcss) {
+function mdsol_set_customcss($css, $customcss) {
     debugging('Please call theme_'.__FUNCTION__.' instead of '.__FUNCTION__, DEBUG_DEVELOPER);
-    return theme_clean_set_customcss($css, $customcss);
+    return theme_mdsol_set_customcss($css, $customcss);
 }
