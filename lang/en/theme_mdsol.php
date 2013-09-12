@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_mdsol_totara_theme', language 'en'
+ * Strings for component 'theme_mdsol', language 'en'
  *
- * @package   theme_mdsol_totara_theme
+ * @package   theme_mdsol
  * @copyright 2013 Moodle, moodle.org
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

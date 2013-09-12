@@ -23,7 +23,7 @@
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   theme_mdsol_totara_theme
+ * @package   theme_mdsol
  * @copyright 2013 Medidata Solutions
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
